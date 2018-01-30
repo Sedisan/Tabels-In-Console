@@ -5,9 +5,9 @@ class ConstantValues:
     @staticmethod
     def separating():
         # separating = ConstantValues.ProvideLength().get_length_of_x() - 8
-        separating = ConstantValues.get_terminal_size()[1] - 20
-        if separating > 30:
-            separating = 10
+        separating = int(ConstantValues.get_terminal_size()[0] / 7) - 3
+        # if separating > 30:
+        #   separating = 10
         return separating
 
 
@@ -129,7 +129,7 @@ class SpinAll:
             setattr(SpinAll, 'counter', 1)
 
     @staticmethod
-    def call_all(days, what_fill):  # assumed the fill separated by \n and day by space/s
+    def call_all(days, what_fill):  # assumed the fill is separated by \n and day by space/s
         if isinstance(type(days), type(str)):
             days = days.split()
         spin = SpinAll()
