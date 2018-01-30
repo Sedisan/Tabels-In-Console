@@ -1,9 +1,13 @@
 class ConstantValues:
-    from ProvideLengthOfTable import ProvideLength
+    # from ProvideLengthOfTable import ProvideLength
+    from shutil import get_terminal_size
 
     @staticmethod
     def separating():
-        separating = ConstantValues.ProvideLength().get_length_of_x()
+        # separating = ConstantValues.ProvideLength().get_length_of_x() - 8
+        separating = ConstantValues.get_terminal_size()[1] - 20
+        if separating > 30:
+            separating = 10
         return separating
 
 
@@ -141,10 +145,13 @@ class SpinAll:
     def clear(self):
         self.all_days = self.fill.fill_default()
         setattr(SpinAll, 'counter', 0)
-        print('\n' * ConstantValues.ProvideLength().get_length_of_y())  # preferred for console using
+        # print('\n' * ConstantValues.ProvideLength().get_length_of_y())  # preferred for console using
+        print('\n' * 100)
 
 # Example data
 SpinAll.call_all("Monday Tuesday", "Eating hot-dogs\nEating a lot of chocolate")
 SpinAll.call_all("Wednesday", "Eating day. I eat whatever I want to")
 SpinAll.call_all("Friday", "Let's drink some beer")
 SpinAll.call_all("Saturday", "Umm")
+from time import sleep
+sleep(3)
